@@ -1,0 +1,65 @@
+experiences:
+  grad_research:
+    base:
+      title: "Graduate Research Assistant, Khwarizmi Lab"
+      organization: "University of Massachusetts Amherst"
+      location: ""
+      dates: "September 2023 -- Present"
+    bullets:
+      - id: gr_1
+        text: "Built a verification framework to analyze quantum key distribution (QKD) protocols; identified 4 new vulnerabilities arising from quantum–classical interactions."
+        tags: [formal, security, verification, research, quantum]
+      - id: gr_2
+        text: "Applied formal analysis to U.S. ACH banking systems to uncover 3 security vulnerabilities that bypass authorization checks for ACH direct payments."
+        tags: [formal, security, verification, research, systems]
+
+  hardware_security:
+    base:
+      title: "Hardware Security Intern, IC Design Lab"
+      organization: "National University of Sciences \\& Technology, Pakistan"
+      location: ""
+      dates: "June 2022 -- September 2022"
+    bullets:
+      - id: hs_1
+        text: "Designed ENIGMA, a Python framework that automatically inserts logic-locking defenses into hardware designs, protecting IP designs from unauthorized use and reverse engineering."
+        tags: [hardware, security, python, automation]
+      - id: hs_2
+        text: "Designed a parametrized key-insertion system (64–256 bits) with user-defined cell libraries to analyze the impact of logic obfuscation on a chip's area, delay, and power."
+        tags: [hardware, security, rtl]
+      - id: hs_3
+        text: "Achieved less than 3\\% area overhead for a logic-locking security feature by analyzing and optimizing algorithms on proprietary RISC-V designs within the ENIGMA framework."
+        tags: [hardware, optimization, systems]
+      - id: hs_4
+        text: "Developed a SAT-attack testing pipeline to benchmark security strength, measuring the time and effort required to break the lock on standard ISCAS'85/ITC'99 circuits."
+        tags: [hardware, security, formal, testing]
+
+  ml_intern:
+    base:
+      title: "Machine Learning Intern, TUKL Deep Learning Lab"
+      organization: "National University of Sciences \\& Technology, Pakistan"
+      location: ""
+      dates: "June 2021 - September 2021"
+    bullets:
+      - id: ml_1
+        text: "Streamlined machine learning workflows by developing an automated Python pipeline to extract, structure, and preprocess data from raw court documents."
+        tags: [ml, python, automation, nlp, data]
+      - id: ml_2
+        text: "Fine-tuned Transformer–based NLP models in TensorFlow and PyTorch for court-case outcome prediction, achieving 83\\% accuracy on a custom legal case dataset and improving model generalization."
+        tags: [ml, nlp, pytorch, tensorflow, transformers, llm]
+
+  undergrad_research:
+    base:
+      title: "Undergraduate Research Assistant, Communication Systems and Networks Lab"
+      organization: "National University of Sciences \\& Technology, Pakistan"
+      location: ""
+      dates: "September 2022 -- July 2023"
+    bullets:
+      - id: ur_1
+        text: "Developed event-driven coordination protocol stack for multi-agent aerial swarms on Raspberry Pi companion computers with Pixhawk/ArduPilot flight controllers."
+        tags: [systems, robotics, embedded, python, cpp]
+      - id: ur_2
+        text: "Designed and optimized leader–follower formation control (flock, line, helical) with dynamic reconfiguration, achieving under 2 min formation-switching latency."
+        tags: [robotics, systems, optimization, controls]
+      - id: ur_3
+        text: "Engineered a mesh networking stack (IEEE 802.11, UDP/TCP, MAVLink) to enable fault-tolerant communication for control coordination in real-time (under 100 ms latency)."
+        tags: [systems, networking, embedded, real-time]

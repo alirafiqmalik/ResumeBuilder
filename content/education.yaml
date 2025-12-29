@@ -1,0 +1,23 @@
+education:
+  phd:
+    base:
+      degree: "PhD in Electrical \\& Computer Engineering"
+      institution: "University of Massachusetts Amherst"
+      dates: "Expected May 2028"
+    details:
+      - id: phd_ta
+        text: "\\textbf{Teaching Assistant:} ECE 304: Junior Design Project, ECE 361: Fundamentals of Electrical Engineering"
+        tags: [teaching, default]
+
+  bachelors:
+    base:
+      degree: "BE in Electrical Engineering \\textit{and} Minor in Computer Science"
+      institution: "National University of Sciences and Technology, Pakistan"
+      dates: "Completed June 2023"
+    details:
+      - id: bs_capstone
+        text: "\\textbf{Capstone Project:} Logic-Locking Security Evaluation: Developed an end-to-end pipeline to analyze the security-cost tradeoffs of hardware obfuscation techniques on proprietary RISC-V design files."
+        tags: [hardware, security, capstone]
+      - id: bs_funded
+        text: "\\textbf{Funded Project:} Multi-Agent Aerial Swarm: Grant-funded research implementing event-driven, low-latency control and resilient control system for multi-UAV swarms."
+        tags: [robotics, systems, research, funded]

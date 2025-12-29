@@ -1,0 +1,50 @@
+skills:
+  skills_programming:
+    category: "Programming Languages"
+    default: "Python, C/C++, Julia, Rust, JavaScript, Kotlin, MATLAB"
+    versions:
+      ml: "Python (Expert), C/C++, Julia, Rust, MATLAB"
+      formal: "Python, C/C++, Julia, Rust, MATLAB"
+      systems: "C/C++ (Expert), Python, Rust, Julia, Assembly"
+      hardware: "Python, C/C++, Verilog, SystemVerilog, MATLAB"
+      llm: "Python (Expert), JavaScript, TypeScript, Rust"
+      cloud: "Python, JavaScript, Go, Bash, SQL"
+      fullstack: "JavaScript/TypeScript, Python, Rust, SQL"
+      robotics: "C/C++ (Expert), Python, Rust"
+
+  skills_ml:
+    category: "DS/ML/AI"
+    default: "PostgreSQL, SQLite, PyTorch, TensorFlow, Scikit-Learn, Pandas, NumPy, Hugging Face, Transformers, LangChain, Ollama, RAG, RLHF, DPO, LLM-as-a-Judge, Knowledge-Based LLM Content Validation"
+    versions:
+      ml: "PyTorch, TensorFlow, Scikit-Learn, Pandas, NumPy, Hugging Face Transformers, Weights \\& Biases, RLHF, DPO"
+      llm: "PyTorch, Hugging Face Transformers, LangChain, Ollama, RAG, RLHF, DPO, LLM-as-a-Judge"
+
+  skills_llm:
+    category: "LLM \\& Agents"
+    default: "LangChain, Ollama, OpenRouter, AWS Bedrock (AgentCore, Automated Reasoning), n8n, browser-use, RAG, Knowledge-Based LLM Content Validation, Verifier Feedback"
+    versions:
+      llm: "LangChain, LlamaIndex, Ollama, OpenRouter, AWS Bedrock, n8n, browser-use, RAG, Verifier Feedback, Agentic Workflows"
+      ml: "LangChain, Ollama, RAG, Hugging Face, Fine-tuning (LoRA, QLoRA)"
+
+  skills_formal:
+    category: "Formal Methods"
+    default: "Symbolic Execution, Model Checking (TLA+, NuXmv, STORM), SMT Solvers (Z3, Bitwuzla), Protocol Verifiers (Tamarin Prover, ProVerif, CryptoVerif)"
+    versions:
+      formal: "Symbolic Execution, Model Checking (TLA+, NuXmv, STORM), SMT Solvers (Z3, Bitwuzla), Protocol Verifiers (Tamarin Prover, ProVerif, CryptoVerif)"
+      security: "Model Checking (TLA+, NuXmv), SMT Solvers (Z3), Protocol Verifiers (Tamarin Prover, ProVerif)"
+
+  skills_devops:
+    category: "DevOps \\& Cloud"
+    default: "Git/GitHub, Docker, Shell Scripting, CMake, AWS (EC2, Route 53, AgentCore), MongoDB, N8N"
+    versions:
+      cloud: "AWS (EC2, S3, Lambda, SageMaker, Route 53, AgentCore), Docker, Kubernetes, Terraform, GitHub Actions"
+      systems: "Docker, Linux, CMake, Shell Scripting, Git/GitHub, CI/CD"
+      ml: "Docker, AWS (EC2, SageMaker), Git/GitHub, Weights \\& Biases"
+
+  skills_tools:
+    category: "Tools"
+    default: "VS Code, Cursor, Android Studio, Jupyter, Selenium, Playwright"
+    versions:
+      ml: "VS Code, Jupyter, Weights \\& Biases, MLflow"
+      llm: "VS Code, Cursor, Jupyter, n8n"
+      systems: "VS Code, GDB, Valgrind, Perf"

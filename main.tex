@@ -1,0 +1,74 @@
+% Main Resume File - Modular Resume System
+
+% -----------------------
+% Helper Macros & Defaults
+% -----------------------
+\newcommand{\IncludeComponent}[1]{\input{resume_components/#1}}
+
+\providecommand{\HeaderSection}{\IncludeComponent{core/header.tex}\vspace{2pt}}
+\providecommand{\SummarySection}{\IncludeComponent{about/summary.tex}\vspace{2pt}}
+\providecommand{\EducationSection}{\IncludeComponent{education/education.tex}\vspace{2pt}}
+
+\providecommand{\SkillsComponents}{%
+  \IncludeComponent{skills/skills_programming.tex}\par\noindent
+  \IncludeComponent{skills/skills_formal.tex}\par\noindent
+  \IncludeComponent{skills/skills_ml.tex}\par\noindent
+  \IncludeComponent{skills/skills_llm.tex}\par\noindent
+  \IncludeComponent{skills/skills_devops.tex}\par\noindent
+  \IncludeComponent{skills/skills_tools.tex}%
+}
+\providecommand{\SkillsSection}{%
+  \section{Technical Skills}
+  \noindent
+  \SkillsComponents
+  \vspace{2pt}%
+}
+
+\providecommand{\ExperienceComponents}{%
+  \IncludeComponent{experience/exp_grad_research.tex}
+  \IncludeComponent{experience/exp_undergrad_research.tex}
+  \IncludeComponent{experience/exp_hardware_security.tex}
+  \IncludeComponent{experience/exp_ml_intern.tex}%
+}
+\providecommand{\ExperienceSection}{%
+  \section{Relevant Experience}
+  \resumeSubHeadingListStart
+    \ExperienceComponents
+  \resumeSubHeadingListEnd
+  \vspace{2pt}%
+}
+
+\providecommand{\ProjectsSection}{\IncludeComponent{projects/projects.tex}\vspace{2pt}}
+\providecommand{\HonorsSection}{\IncludeComponent{extras/honors.tex}\vspace{2pt}}
+\providecommand{\ResearchInterestsSection}{\IncludeComponent{extras/research_interests.tex}\vspace{2pt}}
+\providecommand{\InterestsSection}{\IncludeComponent{extras/interests.tex}\vspace{2pt}}
+
+\providecommand{\ResumeLayout}{%
+  \HeaderSection
+  \SummarySection
+  \EducationSection
+  \SkillsSection
+  \ExperienceSection
+  \ProjectsSection
+  \HonorsSection
+  \ResearchInterestsSection
+  \InterestsSection
+}
+
+% -----------------------
+% Load configuration overrides
+% -----------------------
+\IfFileExists{config.tex}{\input{config.tex}}{}
+
+% -----------------------
+% Include Preamble
+% -----------------------
+\input{resume_components/core/preamble.tex}
+
+% -----------------------
+% Begin Document
+% -----------------------
+\begin{document}
+\ResumeLayout
+\end{document}
+

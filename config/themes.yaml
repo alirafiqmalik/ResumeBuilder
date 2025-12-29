@@ -1,0 +1,112 @@
+themes:
+  ml:
+    description: "Machine Learning / AI roles"
+    experience_tags: [ml, ai, nlp, pytorch, tensorflow, data, transformers]
+    project_tags: [ml, llm, nlp, data]
+    skills:
+      - skills_programming
+      - skills_ml
+      - skills_llm
+      - skills_devops
+    max_experiences: 3
+    max_projects: 4
+    bullets_per_experience: 2
+
+  formal:
+    description: "Formal Methods / Verification"
+    experience_tags: [formal, verification, security, research, quantum]
+    project_tags: [formal, verification, security]
+    skills:
+      - skills_programming
+      - skills_formal
+      - skills_devops
+    max_experiences: 3
+    max_projects: 3
+    bullets_per_experience: 2
+
+  systems:
+    description: "Systems / Infrastructure"
+    experience_tags: [systems, cpp, networking, embedded, real-time, optimization]
+    project_tags: [systems, embedded, networking]
+    skills:
+      - skills_programming
+      - skills_devops
+      - skills_tools
+    max_experiences: 3
+    max_projects: 4
+    bullets_per_experience: 3
+
+  hardware:
+    description: "Hardware Security / RTL"
+    experience_tags: [hardware, rtl, security, verification]
+    project_tags: [hardware, rtl, verification]
+    skills:
+      - skills_programming
+      - skills_formal
+      - skills_devops
+    max_experiences: 3
+    max_projects: 3
+    bullets_per_experience: 4
+
+  llm:
+    description: "LLM / GenAI roles"
+    experience_tags: [llm, ml, nlp, transformers, ai]
+    project_tags: [llm, ml, nlp]
+    skills:
+      - skills_programming
+      - skills_llm
+      - skills_ml
+      - skills_devops
+    max_experiences: 3
+    max_projects: 4
+    bullets_per_experience: 2
+
+  cloud:
+    description: "Cloud / DevOps"
+    experience_tags: [cloud, docker, systems, networking]
+    project_tags: [cloud, docker, systems]
+    skills:
+      - skills_programming
+      - skills_devops
+      - skills_tools
+    max_experiences: 3
+    max_projects: 3
+    bullets_per_experience: 2
+
+  fullstack:
+    description: "Full-Stack Development"
+    experience_tags: [fullstack, web, python, typescript]
+    project_tags: [fullstack, web, cloud]
+    skills:
+      - skills_programming
+      - skills_devops
+      - skills_tools
+    max_experiences: 3
+    max_projects: 4
+    bullets_per_experience: 2
+
+  robotics:
+    description: "Robotics / Embedded Systems"
+    experience_tags: [robotics, embedded, systems, cpp, controls, real-time]
+    project_tags: [embedded, systems, robotics]
+    skills:
+      - skills_programming
+      - skills_devops
+      - skills_tools
+    max_experiences: 3
+    max_projects: 4
+    bullets_per_experience: 3
+
+  default:
+    description: "Comprehensive default"
+    experience_tags: [research, ml, formal, systems, security]
+    project_tags: [ml, llm, systems, hardware]
+    skills:
+      - skills_programming
+      - skills_ml
+      - skills_formal
+      - skills_devops
+      - skills_tools
+    max_experiences: 4
+    max_projects: 5
+    bullets_per_experience: 2

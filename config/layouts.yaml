@@ -1,0 +1,48 @@
+layouts:
+  skill_first:
+    description: "Technical roles - skills prominent"
+    sections:
+      - header
+      - skills
+      - experience
+      - education
+      - projects
+      - honors
+
+  experience_first:
+    description: "Industry roles - experience prominent"
+    sections:
+      - header
+      - experience
+      - skills
+      - education
+      - projects
+      - honors
+
+  academic:
+    description: "Research/PhD positions"
+    sections:
+      - header
+      - education
+      - experience
+      - skills
+      - projects
+      - honors
+
+  streamlined:
+    description: "One-page focused resume"
+    sections:
+      - header
+      - skills
+      - experience
+      - education
+
+  fullversion:
+    description: "Comprehensive resume with all sections"
+    sections:
+      - header
+      - skills
+      - experience
+      - education
+      - projects
+      - honors

@@ -1,0 +1,84 @@
+projects:
+  voice_assistant:
+    base:
+      title: "Local AI Voice Assistant (Alexa Replacement)"
+      tech: "Python, Docker, Home Assistant, Raspberry Pi, ESP32-S3, Whisper (STT), Piper (TTS), Ollama (Llama 3.x), Wyoming protocol"
+    bullets:
+      - id: va_1
+        text: "Built a fully local, privacy-preserving AI voice assistant to replace Alexa using Home Assistant, Raspberry Pi/ESP32, and quantized Llama 3.2 1B model as the conversational brain."
+        tags: [llm, embedded, privacy, systems]
+      - id: va_2
+        text: "Engineered and containerized the end-to-end voice pipeline, offloading STT/TTS to a dedicated server for lower latency while keeping low-power edge devices as always-on multi-room microphones/speakers."
+        tags: [systems, docker, embedded, ml]
+
+  pdf_tutor:
+    base:
+      title: "PDF Tutor - AI-Powered PDF Learning Assistant"
+      tech: "TypeScript, JavaScript (ES6), Cloudflare Workers, Workers AI (LLM), Cloudflare R2, PDF.js, unpdf, HTML/CSS"
+    bullets:
+      - id: pt_1
+        text: "Built an edge-deployed web app on Cloudflare Workers that lets users upload/manage a PDF library and study documents via an interactive PDF.js viewer with AI-generated page-level summaries, quizzes, and per-page notes persisted in R2 object storage."
+        tags: [llm, cloud, fullstack, web]
+      - id: pt_2
+        text: "Implemented a modular TypeScript backend exposing REST APIs for PDF upload, text extraction with unpdf, Workers AI–powered summarization and MCQ generation, and endpoints for user notes and quiz-score tracking."
+        tags: [fullstack, cloud, llm, typescript]
+
+  sdn_ids:
+    base:
+      title: "SDN-Based Machine Learning IDS"
+      tech: "Python, Mininet, CloudLab"
+    bullets:
+      - id: ids_1
+        text: "Developed an IDS for SDN using machine and deep learning models to classify malicious network traffic."
+        tags: [ml, security, networking, python]
+      - id: ids_2
+        text: "Deployed the detection system on CloudLab with support for real-time traffic monitoring and scalable multi-node experimentation."
+        tags: [systems, cloud, ml, networking]
+
+  doc_analyzer:
+    base:
+      title: "Private AI Document Analyzer"
+      tech: "Python, Ollama, Docker"
+    bullets:
+      - id: da_1
+        text: "Deployed DeepSeek-R1 1.5B and LLaMa-3 8B models locally using Docker for secure offline document analysis."
+        tags: [llm, privacy, docker, ml]
+      - id: da_2
+        text: "Built an AI pipeline to enable natural language search across sensitive documents with full data control."
+        tags: [llm, ml, nlp, privacy]
+
+  riscv_cpu:
+    base:
+      title: "Scalar RISC-V Microprocessor"
+      tech: "Verilog, Python, Makefile, Shell"
+    bullets:
+      - id: rv_1
+        text: "Implemented a 5-stage pipelined RISC-V processor with hazard detection and forwarding logic."
+        tags: [hardware, rtl, systems]
+      - id: rv_2
+        text: "Created randomized testing framework and validated processor functionality using simulation and waveform analysis."
+        tags: [hardware, testing, verification]
+
+  home_automation:
+    base:
+      title: "Voice-Controlled Home Automation System"
+      tech: "C/C++, Python, JavaScript/HTML"
+    bullets:
+      - id: ha_1
+        text: "Built an ESP32-based voice automation system with TinyML for wake-word detection and WiFi-enabled device control."
+        tags: [embedded, ml, cpp, systems]
+      - id: ha_2
+        text: "Integrated a mobile-responsive web interface for real-time monitoring and manual override."
+        tags: [fullstack, web, embedded]
+
+  fpga_renderer:
+    base:
+      title: "FPGA Real-Time Circle Renderer"
+      tech: "Verilog"
+    bullets:
+      - id: fr_1
+        text: "Implemented Bresenham's Circle Algorithm in Verilog for live pixel rendering via a VGA driver module."
+        tags: [hardware, rtl, graphics]
+      - id: fr_2
+        text: "Enabled smooth real-time hardware-level animation of geometric shapes with minimal resource usage."
+        tags: [hardware, optimization, rtl]
