@@ -12,7 +12,7 @@ education:
   bachelors:
     base:
       degree: "BE in Electrical Engineering \\textit{and} Minor in Computer Science"
-      institution: "National University of Sciences and Technology, Pakistan"
+      institution: "National University of Sciences and Technology"
       dates: "Completed June 2023"
     details:
       - id: bs_capstone

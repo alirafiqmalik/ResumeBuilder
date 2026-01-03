@@ -16,7 +16,7 @@ experiences:
   hardware_security:
     base:
       title: "Hardware Security Intern, IC Design Lab"
-      organization: "National University of Sciences \\& Technology, Pakistan"
+      organization: "National University of Sciences \\& Technology"
       location: ""
       dates: "June 2022 -- September 2022"
     bullets:
@@ -36,7 +36,7 @@ experiences:
   ml_intern:
     base:
       title: "Machine Learning Intern, TUKL Deep Learning Lab"
-      organization: "National University of Sciences \\& Technology, Pakistan"
+      organization: "National University of Sciences \\& Technology"
       location: ""
       dates: "June 2021 - September 2021"
     bullets:
@@ -50,7 +50,7 @@ experiences:
   undergrad_research:
     base:
       title: "Undergraduate Research Assistant, Communication Systems and Networks Lab"
-      organization: "National University of Sciences \\& Technology, Pakistan"
+      organization: "National University of Sciences \\& Technology"
       location: ""
       dates: "September 2022 -- July 2023"
     bullets:
