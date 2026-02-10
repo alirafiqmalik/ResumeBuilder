@@ -1,0 +1,25 @@
+name: ml_focused
+description: "Machine Learning and AI roles - emphasizes ML experience and skills"
+inherit_from: ml
+
+experiences:
+  grad_research:
+    - gr_1  # Quantum verification (formal + research)
+  ml_intern:
+    - ml_1  # ML pipeline automation
+    - ml_2  # Transformer NLP models
+  hardware_security:
+    - hs_1  # ENIGMA Python framework
+
+skills:
+  Programming Languages:
+    - skills_programming
+  DS/ML/AI:
+    - skills_ml
+  LLM & Agents:
+    - skills_llm
+  DevOps & Cloud:
+    - skills_devops
+
+created_at: "2026-02-10T00:00:00"
+updated_at: "2026-02-10T00:00:00"

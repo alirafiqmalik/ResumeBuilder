@@ -38,9 +38,9 @@ class ResumeBuilder:
             self._profile_data = self._load_profile(profile)
         
         # Initialize metrics and validator
-        from builder.metrics import SpaceEstimator
-        from builder.cache import MeasurementCache
-        from builder.validator import ConstraintChecker
+        from .metrics import SpaceEstimator
+        from .cache import MeasurementCache
+        from .validator import ConstraintChecker
         
         self.cache = MeasurementCache(self.cache_dir)
         self.metrics = SpaceEstimator(self.cache)
@@ -124,14 +124,7 @@ class ResumeBuilder:
 
     def get_skill_line(self, skill_id: str, theme_name: str) -> str:
         """Get skill line for theme, fallback to default"""
-        skill = self.skills.get(skill_id, {})
-        versions = skill.get("versions", {})
-        text = versions.get(theme_name, skill.get("default", ""))
-        category = skill.get("category", skill_id)
-        return f"\\textbf{{{category}:}} {text}"
-
-    def select_experiences(self, theme_config: dict) -> List[dict]:
-        """Select and format experiences based on theme or profile"""
+        skill = self.skills.get(skill_id, {}) or profile"""
         # If profile specifies experiences, use those instead of auto-selection
         if self._profile_data and "experiences" in self._profile_data:
             return self._select_experiences_from_profile(self._profile_data)
@@ -193,7 +186,14 @@ class ResumeBuilder:
                     "dates": base.get("dates", ""),
                     "bullets": selected_bullet_texts
                 })
-        
+        lected.append({
+                "id": exp_id,
+                "title": base.get("title", ""),
+                "organization": base.get("organization", ""),
+                "location": base.get("location", ""),
+                "dates": base.get("dates", ""),
+                "bullets": selected_bullets
+            })
         return selected
 
     def select_projects(self, theme_config: dict) -> List[dict]:
@@ -248,7 +248,13 @@ class ResumeBuilder:
         
         preamble = (self.components_dir / "core" / "preamble.tex").read_text()
         
-        parts = [preamble, "\\begin{document}"]
+        # If profile specifies skills, use those
+        if self._profile_data and "skills" in self._profile_data:
+            skill_ids = []
+            for category, skills in self._profile_data["skills"].items():
+                skill_ids.extend(skills)
+        else:
+            parts = [preamble, "\\begin{document}"]
         
         for section in sections:
             content = self._build_section(section, theme_config, theme_name)
@@ -284,13 +290,7 @@ class ResumeBuilder:
 
     def _build_skills_section(self, theme_config: dict, theme_name: str) -> str:
         """Build skills section"""
-        # If profile specifies skills, use those
-        if self._profile_data and "skills" in self._profile_data:
-            skill_ids = []
-            for category, skills in self._profile_data["skills"].items():
-                skill_ids.extend(skills)
-        else:
-            skill_ids = theme_config.get("skills", [])
+        skill_ids = theme_config.get("skills", [])
         
         lines = ["\\section{Technical Skills}"]
         
@@ -316,23 +316,31 @@ class ResumeBuilder:
             for bullet in exp["bullets"]:
                 lines.append(f"    \\resumeItem{{{bullet}}}")
             lines.append("      \\resumeItemListEnd")
+        , validate: bool = True) -> Path:
+        """Compile LaTeX to PDF with optional validation"""
+        result = subprocess.run(
+            ["pdflatex", "-interaction=nonstopmode",
+             "-output-directory", str(tex_file.parent), str(tex_file)],
+            capture_output=True, text=True, cwd=str(self.root)
+        )
         
-        lines.append("\\resumeSubHeadingListEnd")
-        return "\n".join(lines)
-
-    def _build_education_section(self, theme_config: dict) -> str:
-        """Build education section"""
-        lines = ["\\section{Education}", "  \\resumeSubHeadingListStart"]
+        for ext in [".aux", ".log", ".out"]:
+            aux = tex_file.with_suffix(ext)
+            if aux.exists():
+                aux.unlink()
         
-        for edu_id, edu_data in self.education.items():
-            base = edu_data.get("base", {})
-            details = edu_data.get("details", [])
-            
-            lines.append("    \\resumeSubheading")
-            lines.append(f"      {{{base.get('degree', '')}}}{{{base.get('dates', '')}}}")
-            lines.append(f"      {{{base.get('institution', '')}}}{{\\vspace{{7pt}}}}")
-            
-            for detail in details[:1]:
+        pdf_file = tex_file.with_suffix(".pdf")
+        if not pdf_file.exists():
+            print(f"LaTeX compilation failed:\n{result.stdout}\n{result.stderr}")
+            return None
+        
+        # Run validation if requested
+        if validate:
+            page_count = self.metrics.count_pdf_pages(pdf_file)
+            if page_count and page_count > 1:
+                print(f"\n⚠️  WARNING: Resume is {page_count} pages (exceeds 1-page requirement)")
+                print("   Consider removing content or running 'validate' command for suggestions")
+        in details[:1]:
                 lines.append(f"      {{ \\hspace*{{1em}}\\small {detail.get('text', '')} }}")
             
             lines.append("      \\vspace{-4pt}")
@@ -358,8 +366,8 @@ class ResumeBuilder:
         lines.append("\\resumeSubHeadingListEnd")
         return "\n".join(lines)
 
-    def compile_pdf(self, tex_file: Path, validate: bool = True) -> Path:
-        """Compile LaTeX to PDF with optional validation"""
+    def compile_pdf(self, tex_file: Path) -> Path:
+        """Compile LaTeX to PDF"""
         result = subprocess.run(
             ["pdflatex", "-interaction=nonstopmode",
              "-output-directory", str(tex_file.parent), str(tex_file)],
@@ -372,29 +380,7 @@ class ResumeBuilder:
                 aux.unlink()
         
         pdf_file = tex_file.with_suffix(".pdf")
-        if not pdf_file.exists():
-            print(f"LaTeX compilation failed:\n{result.stdout}\n{result.stderr}")
-            return None
-        
-        # Run validation if requested
-        if validate:
-            page_count = self.metrics.count_pdf_pages(pdf_file)
-            if page_count and page_count > 1:
-                print(f"\n⚠️  WARNING: Resume is {page_count} pages (exceeds 1-page requirement)")
-                print("   Consider removing content or running 'validate' command for suggestions")
-        
-        return pdf_file
-
-    def lock(self, tex_file: Path, company: str) -> Tuple[Path, Path]:
-        """Lock temp file as final application"""
-        company_clean = company.replace(" ", "_")
-        app_dir = self.apps_dir / company_clean
-        app_dir.mkdir(parents=True, exist_ok=True)
-        
-        final_tex = app_dir / f"{company_clean}.tex"
-        shutil.copy(tex_file, final_tex)
-        
-        final_pdf = self.compile_pdf(final_tex, validate=False)
+        if not pdf_file.exists():, validate=False)
         
         # Extended metadata
         pdf_pages = self.metrics.count_pdf_pages(final_pdf) if final_pdf else None
@@ -404,7 +390,21 @@ class ResumeBuilder:
             "locked_date": datetime.now().isoformat(),
             "source_temp": str(tex_file.name),
             "profile": self._profile_data.get("name") if self._profile_data else None,
-            "page_count": pdf_pages,
+            "page_count": pdf_pages,tr) -> Tuple[Path, Path]:
+        """Lock temp file as final application"""
+        company_clean = company.replace(" ", "_")
+        app_dir = self.apps_dir / company_clean
+        app_dir.mkdir(parents=True, exist_ok=True)
+        
+        final_tex = app_dir / f"{company_clean}.tex"
+        shutil.copy(tex_file, final_tex)
+        
+        final_pdf = self.compile_pdf(final_tex)
+        
+        metadata = {
+            "company": company,
+            "locked_date": datetime.now().isoformat(),
+            "source_temp": str(tex_file.name)
         }
         metadata_file = app_dir / f"{company_clean}_metadata.yaml"
         with open(metadata_file, "w") as f:

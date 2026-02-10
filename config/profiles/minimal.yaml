@@ -1,0 +1,22 @@
+name: minimal
+description: "Minimal 1-page resume - carefully selected key experiences only"
+inherit_from: ml
+
+experiences:
+  grad_research:
+    - gr_1  # Key research contribution
+  ml_intern:
+    - ml_2  # Most impressive ML achievement
+  hardware_security:
+    - hs_1  # Python automation framework
+
+skills:
+  Programming Languages:
+    - skills_programming
+  DS/ML/AI:
+    - skills_ml
+  DevOps & Cloud:
+    - skills_devops
+
+created_at: "2026-02-10T00:00:00"
+updated_at: "2026-02-10T00:00:00"
